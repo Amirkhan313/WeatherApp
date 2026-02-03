@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Report</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="src/output.css">
+</head>
+
+<body class="bg-[#02012b]">
+    <!-- start weather body -->
+    <div class="weather_site">
+        <div class="header">
+            <img src="assets/images/logo.svg" alt="">
+            <div class="dropdown-list">
+                <img src="assets/images/icon-units.svg" alt="">
+                <i>Units</i>
+                <i class="fa-solid fa-chevron-down dropdown_arrow"></i>
+            </div>
+        </div>
+
+        <div class="units bg-[#25253f] md:right-20 w-55 px-1.5! py-1! text-white rounded-lg">
+            <div class="container bg-[#26293d] rounded-lg py-3!">
+                <div class="unit_box px-1.5!">
+                    <button class="capitalize active cursor-pointer block px-4!">switch to imperial</button>
+                    <p class="capitalize my-2! text-neutral-400 block px-5!">temprature</p>
+                    <button data-type="temp" data-unit="C" class="cursor-pointer active block mb-3! px-5!">Celsius(°C)
+                        <span>✔</span></button>
+                    <button data-type="temp" data-unit="F" class="cursor-pointer my-2.5! block px-5!">Fahrenheit(°F)
+                        <span>✔</span></button>
+                </div>
+
+                <div class="unit_box px-1.5!">
+                    <p class="capitalize text-neutral-400 block px-5!">Wind Speed</p>
+                    <button data-type="wind" data-unit="km/h" class="cursor-pointer active my-2! block px-5!">km/h
+                        <span>✔</span></button>
+                    <button data-type="wind" data-unit="mph" class="cursor-pointer block px-5! mb-2.5!">mph
+                        <span>✔</span></button>
+                </div>
+
+                <div class="unit_box px-1.5!">
+                    <p class="text-neutral-400 my-2! block px-5!">Precipitation</p>
+                    <button data-type="precip" data-unit="mm"
+                        class="cursor-pointer active mb-2! block px-5!">Millimeters(mm)
+                        <span>✔</span></button>
+                    <button data-type="precip" data-unit="in" class="capitalize cursor-pointer block px-5!">inches(in)
+                        <span>✔</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-section">
+            <p class="Q_condition">How's the sky looking today?</p>
+            <form action="" class="flex justify-center items-center">
+                <div class="relative max-md:w-full">
+                    <div class="search-section">
+                        <div class="search-input">
+                            <input id="inputValue" type="search" autocomplete="off" class="outline-0"
+                                placeholder="Search for a place...">
+                            <img src="assets/images/icon-search.svg" alt="">
+                        </div>
+                        <button class="searchBtn" id="searchBtn" type="submit">Search</button>
+                    </div>
+                    <ul id="suggestion-list"
+                        class="hidden absolute !mt-[-12px] w-[83%] z-60 rounded-[8px] bg-[#26293d] text-left">
+                    </ul>
+                </div>
+            </form>
+
+            <div class="Weather_Report">
+                <div class="zone-weather">
+                    <div class="weather_card">
+                        <div class="first text-center w-20">
+                            <img src="assets/images/icon-sunny.webp" id="wetherIcon" data-type="weatherIcon" alt="">
+                            <p id="temperature" class="!font-bold">--</p>
+                        </div>
+                        <div class="second">
+                            <p id="cityName">Herat, Afghanistan</p>
+                            <p id="currentDate">--</p>
+                        </div>
+                    </div>
+
+                    <div class="weather_details">
+                        <div class="condition">
+                            <p>Feels Like</p>
+                            <i id="FeelsLike">--</i>
+                        </div>
+
+                        <div class="condition">
+                            <p>Humidity</p>
+                            <i id="Humidity">--</i>
+                        </div>
+
+                        <div class="condition">
+                            <p>Wind</p>
+                            <i id="Wind">--</i>
+                        </div>
+
+                        <div class="condition">
+                            <p>Precipitation</p>
+                            <i id="Precipitation">--</i>
+                        </div>
+                    </div>
+
+                    <div class="daily_report">
+                        <p>Daily forecast</p>
+                        <div id="dailyForecast"
+                            class="grid grid-cols-7 [@media(max-width:550px)]:!grid-cols-4 [@media(min-width:551px)_and_(max-width:650px)]:!grid-cols-5 [@media(min-width:651px)_and_(max-width:710px)]:!grid-cols-6 [@media(min-width:711px)]:!grid-cols-7 gap-4 justify-items-center text-gray-400 daily-forecast">
+                            <div class="day !py-3 !px-5">
+                                <p class="">--</p>
+                                <img src="" alt="img">
+                                <div class="rate">
+                                    <p>--</p>
+                                    <p>--</p>
+                                </div>
+                            </div>
+                            <div class="day !py-3 !px-5">
+                                <p class="">--</p>
+                                <img src="" alt="img">
+                                <div class="rate">
+                                    <p>--</p>
+                                    <p>--</p>
+                                </div>
+                            </div>
+                            <div class="day !py-3 !px-5">
+                                <p class="">--</p>
+                                <img src="" alt="img">
+                                <div class="rate">
+                                    <p>--</p>
+                                    <p>--</p>
+                                </div>
+                            </div>
+                            <div class="day !py-3 !px-5">
+                                <p class="">--</p>
+                                <img src="" alt="img">
+                                <div class="rate">
+                                    <p>--</p>
+                                    <p>--</p>
+                                </div>
+                            </div>
+                            <div class="day !py-3 !px-5">
+                                <p class="">--</p>
+                                <img src="" alt="img">
+                                <div class="rate">
+                                    <p>--</p>
+                                    <p>--</p>
+                                </div>
+                            </div>
+                            <div class="day !py-3 !px-5">
+                                <p class="">--</p>
+                                <img src="" alt="img">
+                                <div class="rate">
+                                    <p>--</p>
+                                    <p>--</p>
+                                </div>
+                            </div>
+                            <div class="day !py-3 !px-5">
+                                <p class="">--</p>
+                                <img src="" alt="img">
+                                <div class="rate">
+                                    <p>--</p>
+                                    <p>--</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hourly-forecast">
+                    <header class="top relative">
+                        <p class="">Hourly forecast</p>
+                        <button id="btnMenu" class="btnMenu cursor-pointer bg-[#3c3b5d] !py-2 !px-3 rounded-[6px]">
+                            <span class="cursor-pointer text-white defualt_day"></span>
+                            <span class="fa-solid fa-chevron-down text-white dropdownArrow"></span>
+                        </button>
+                        <div
+                            class="dailyCondtion absolute [@media(max-width:2261px)]:right-[0px] [@media(max-width:768px)]:left-0 [@media(max-width:768px)]:!w-50  [@media(max-width:768px)]:!top-26 [@media(max-width:890px)]:w-45 [@media(max-width:840px)]:!w-40 bg-[#25253f] px-1.5! py-1! md:w-50 text-white rounded-lg">
+                            <ul class="container_two !px-1.5 !py-0.5 hidden bg-[#26293d] rounded-lg" name="" id="">
+                                <li id="sun" data-index="0" class="cursor-pointer my-2! block  !py-2 px-5!">Sunday
+                                </li>
+                                <li id="mon" data-index="1" class="cursor-pointer my-2! block  !py-2 px-5!">Monday
+                                </li>
+                                <li id="tue" data-index="2" class="cursor-pointer my-2! block  !py-2 px-5!">Tuesday
+                                </li>
+                                <li id="wed" data-index="3" class="cursor-pointer block px-5!  !py-2 mb-2.5!">
+                                    Wednsday</li>
+                                <li id="th" data-index="4" class="cursor-pointer block px-5!  !py-2 mb-2.5!">
+                                    Thursday </li>
+                                <li id="fri" data-index="5" class="cursor-pointer block   !py-2 px-5! mb-2.5!">
+                                    Friday</li>
+                                <li id="sat" data-index="6" class="cursor-pointer my-2! !py-2  block px-5!">
+                                    Saturday</li>
+                            </ul>
+                        </div>
+                    </header>
+
+                    <div class="boxes">
+                        <div class="wet_box">
+                            <p> <img src="" alt="img">--</p>
+                            <p>--</MBUIIXZ>
+                            </p>
+                        </div>
+                        <div class="wet_box">
+                            <p> <img src="" alt="img">--</p>
+                            <p>--</MBUIIXZ>
+                            </p>
+                        </div>
+
+                        <div class="wet_box">
+                            <p> <img src="" alt="img">--</p>
+                            <p>--</MBUIIXZ>
+                            </p>
+                        </div>
+                        <div class="wet_box">
+                            <p> <img src="" alt="img">--</p>
+                            <p>--</MBUIIXZ>
+                            </p>
+                        </div>
+                        <div class="wet_box">
+                            <p> <img src="" alt="img">--</p>
+                            <p>--</MBUIIXZ>
+                            </p>
+                        </div>
+                        <div class="wet_box">
+                            <p> <img src="" alt="img">--</p>
+                            <p>--</MBUIIXZ>
+                            </p>
+                        </div>
+                        <div class="wet_box">
+                            <p> <img src="" alt="img">--</p>
+                            <p>--</MBUIIXZ>
+                            </p>
+                        </div>
+                        <div class="wet_box">
+                            <p> <img src="" alt="img">--</p>
+                            <p>--</MBUIIXZ>
+                            </p>
+                        </div>
+                        <div class="wet_box">
+                            <p> <img src="" alt="img">--</p>
+                            <p>--</MBUIIXZ>
+                            </p>
+                        </div>
+                        <div class="wet_box">
+                            <p> <img src="" alt="img">--</p>
+                            <p>--</MBUIIXZ>
+                            </p>
+                        </div>
+                        <div class="wet_box">
+                            <p> <img src="" alt="img">--</p>
+                            <p>--</MBUIIXZ>
+                            </p>
+                        </div>
+                        <div class="wet_box">
+                            <p> <img src="" alt="img">--</p>
+                            <p>--</MBUIIXZ>
+                            </p>
+                        </div>
+                        <div class="wet_box">
+                            <p> <img src="" alt="img">--</p>
+                            <p>--</MBUIIXZ>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of weather body -->
+
+    <div id="show_connection_error">
+        <div class="ErrorConnection flex flex-col items-center justify-center">
+            <i class="fa-solid fa-ban text-[#555570] text-[55px]"></i>
+            <h1 class="text-5xl text-white !my-3">something went wrong</h1>
+            <p class="text-[20px] text-gray-400">we coculd not connect to the Api server</p>
+            <p class="text-[18px] text-gray-400">check the connection and try again!</p>
+            <div id="retryBtn"
+                class="spinerBtn hover:bg-[#383854] flex justify-center items-center capitalize text-white cursor-pointer bg-[#2b2b42] !space-x-2 !py-2 !px-5 rounded-[8px] !mt-6">
+                <i class="fa-solid fa-arrows-rotate spinnerIcon text-[20px]"></i>
+                <span class="text-[16px] loadingMesage">retry</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="js/weatherJs.js"></script>
